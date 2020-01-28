@@ -2,22 +2,35 @@
 
 ## Table of Contents
 
-- [Description](#description)
-- [Features](#features)
-- [Requirements and Installation](#requirements-and-installation)
-- [Usage](#usage)
-- [Advanced Usage](#advanced-usage)
-- [Fix](#fix)
-- [Screenshots](#screenshots)
-- [Troubleshooting](#troubleshooting)
-- [Extras](#extras)
-- [Forensics Ready Checks](#forensics-ready-checks)
-- [GDPR Checks](#gdpr-checks)
-- [HIPAA Checks](#hipaa-checks)
-- [Add Custom Checks](#add-custom-checks)
-- [Third Party Integrations](#third-party-integrations)
-- [Full list of checks and groups](/LIST_OF_CHECKS_AND_GROUPS.md)
-- [License](#license)
+- [Prowler: AWS CIS Benchmark Tool](#prowler-aws-cis-benchmark-tool)
+  - [Table of Contents](#table-of-contents)
+  - [Description](#description)
+  - [Features](#features)
+  - [TigerConnect Deployment](#tigerconnect-deployment)
+  - [Requirements and Installation](#requirements-and-installation)
+  - [Usage](#usage)
+  - [Advanced Usage](#advanced-usage)
+    - [Assume Role:](#assume-role)
+    - [Custom folder for custom checks](#custom-folder-for-custom-checks)
+    - [Show or log only FAILs](#show-or-log-only-fails)
+  - [How to fix every FAIL](#how-to-fix-every-fail)
+  - [Screenshots](#screenshots)
+  - [Troubleshooting](#troubleshooting)
+    - [STS expired token](#sts-expired-token)
+    - [Run Prowler with MFA protected credentials](#run-prowler-with-mfa-protected-credentials)
+    - [Custom IAM Policy](#custom-iam-policy)
+    - [Bootstrap Script](#bootstrap-script)
+  - [Extras](#extras)
+  - [Forensics Ready Checks](#forensics-ready-checks)
+  - [GDPR Checks](#gdpr-checks)
+  - [HIPAA Checks](#hipaa-checks)
+    - [Note on Business Associate Addendum's (BAA)](#note-on-business-associate-addendums-baa)
+  - [Add Custom Checks](#add-custom-checks)
+  - [Add Custom Groups](#add-custom-groups)
+  - [Third Party Integrations](#third-party-integrations)
+    - [Telegram](#telegram)
+    - [Cloud Security Suite](#cloud-security-suite)
+  - [License](#license)
 
 ## Description
 
@@ -51,6 +64,24 @@ With Prowler you can:
 - a CSV format report for diff
 - run specific checks without having to run the entire report
 - check multiple AWS accounts in parallel
+
+## TigerConnect Deployment
+
+- Build image: `docker build -f util/Dockerfile -t prowler .`
+
+- Make sure you have properly configured your AWS-CLI with a valid Access Key and Region or declare AWS variables properly:
+
+    ```sh
+    aws configure
+    ```
+    or 
+    ```sh
+    export AWS_ACCESS_KEY_ID="ASXXXXXXX"
+    export AWS_SECRET_ACCESS_KEY="XXXXXXXXX"
+    export AWS_SESSION_TOKEN="XXXXXXXXX"
+    ```
+
+- Run image: `docker run -e  --rm -it prowler`
 
 ## Requirements and Installation
 
