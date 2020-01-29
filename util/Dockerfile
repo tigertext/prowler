@@ -17,6 +17,6 @@ USER ${USERNAME}
 
 WORKDIR /prowler/.aws/
 
-ADD .aws/config /prowler/.aws/
+ADD ./.aws/config /prowler/.aws/
 
 ENTRYPOINT ["/prowler/prowler", "-M", "mono"]
