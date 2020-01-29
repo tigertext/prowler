@@ -15,4 +15,4 @@ RUN chown -R prowler /prowler/
 
 USER ${USERNAME}
 
-ENTRYPOINT ["/prowler/prowler"]
+ENTRYPOINT ["/prowler/prowler", "-H", "mono"]
