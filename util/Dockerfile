@@ -19,4 +19,4 @@ WORKDIR /prowler/.aws/
 
 ADD .aws/config /prowler/.aws/
 
-ENTRYPOINT ["/prowler/prowler", "-M", "mono", "-p", "SecurityAudit"]
+ENTRYPOINT ["/prowler/prowler", "-M", "mono"]
