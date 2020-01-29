@@ -15,4 +15,8 @@ RUN chown -R prowler /prowler/
 
 USER ${USERNAME}
 
-ENTRYPOINT ["/prowler/prowler", "-M", "mono"]
+WORKDIR /prowler/.aws/
+
+ADD .aws/config /prowler/.aws/
+
+ENTRYPOINT ["/prowler/prowler", "-M", "mono", "-p", "SecurityAudit"]
