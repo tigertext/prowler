@@ -15,10 +15,6 @@ RUN chown -R prowler /prowler/
 
 USER ${USERNAME}
 
-WORKDIR /prowler/.aws/
-
-ADD ./.aws/config /prowler/.aws/
-
 # Output mode mono, no banner, filter only us-east-1, max items 75
 
 ENTRYPOINT ["/prowler/prowler", "-M", "mono", "-b", "-f", "us-east-1", "-m", "75"]
